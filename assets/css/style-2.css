@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 :root {
     
     --body: #fff;
@@ -27,4 +30,11 @@
     font-size: 38px;
     font-weight: 800;
     line-height: 1;
+}
+.skills-slider .swiper-wrapper {
+  display: flex;
+}
+
+.skills-slider .swiper-slide {
+  height: auto;
 }

@@ -1,3 +1,30 @@
+// smooth scroll
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
+
+// Get existing smoother (created in main.js)
+let smoother = ScrollSmoother.get();
+
+// If not created yet, create it
+if (!smoother) {
+  smoother = ScrollSmoother.create({
+    wrapper: "#smooth-wrapper",
+    content: "#smooth-content",
+    smooth: 1.5,
+    effects: true
+  });
+}
+
+// Smooth scroll for menu links
+document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const target = this.getAttribute("href");
+
+    smoother.scrollTo(target, true, "power2.out");
+  });
+});
+// smooth scroll
 
 const buttons = document.querySelectorAll(".budget-btn");
 const requirementInput = document.getElementById("requirement");
